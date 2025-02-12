@@ -4,7 +4,7 @@ import logo from "../../images/logo.png";
 import { useState } from "react";
 const NavBar = () => {
   const NavBarItem = ({ title, classprops }) => {
-    return <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>;
+    return <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>;AiOutlineClose
   };
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
@@ -34,13 +34,13 @@ const NavBar = () => {
           />
         )}
 
-        {toggleMenu && (
+        {/* {toggleMenu && (
           <AiOutlineClose
             size={28}
             className="text-white md:hidden"
             onClick={() => setToggleMenu(false)}
           />
-        )}
+        )} */}
         {toggleMenu && (
           <ul
             className="z-10 fixed -top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
