@@ -29,6 +29,7 @@ const createEthereumContract = async () => {
 
 export const TransactionsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [currentAccount, setCurrentAccount] = useState("");
   const [transactionCount, setTransactionCount] = useState(
     localStorage.getItem("transactionCount")
   );
@@ -39,7 +40,7 @@ export const TransactionsProvider = ({ children }) => {
     keyword: "",
     message: "",
   });
-  const [currentAccount, setCurrentAccount] = useState("");
+
   const handleChange = (e, name) => {
     setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
@@ -158,7 +159,7 @@ export const TransactionsProvider = ({ children }) => {
   useEffect(() => {
     checkIfWalletIsConnect();
     checkIfTransactionsExists;
-  }, [transactionCount]);
+  }, [currentAccount, transactionCount]);
   return (
     <TransactionContext.Provider
       value={{
